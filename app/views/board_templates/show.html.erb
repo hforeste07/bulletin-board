@@ -12,7 +12,7 @@
   <header>
       <h2>Active Listings</h2>
   </header>
-  
+
   <table>
     <thead>
       <th>Title</th>
@@ -25,8 +25,8 @@
       <tr>
         <td><%= a_listing.title %></td>
         <td><%= a_listing.body %></td>
-        <td><%= a_listing.expires_on %></td>
-        <td><%= a_listing.created_at %></td>
+        <td><%= a_listing.expires_on.strftime("%b %e, %y") %></td>
+        <td><%= a_listing.created_at.strftime("%b %e, %y") %></td>
       </tr>
     <% end %>
   </table>
