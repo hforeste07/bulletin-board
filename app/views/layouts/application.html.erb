@@ -38,11 +38,17 @@
       </div>
     </header>
 
-    <div class="container-two-thirds">
-      <%= yield %>
-    </div>
+    <main>
+      <div class="text-success">
+        <%= notice %>
+      </div>
+      
+      <div class="container-two-thirds">
+        <%= yield %>
+      </div>
 
-    <footer class="text-center">
-    </footer>
+      <footer class="text-center">
+      </footer>
+    </main>
   </body>
 </html>
