@@ -10,48 +10,52 @@
 
 <article>
   <header>
-      <h2>Active Listings</h2>
+    <h2>Active Listings</h2>
   </header>
 
-  <table>
-    <thead>
-      <th>Title</th>
-      <th>Body</th>
-      <th>Expires On</th>
-      <th>Posted On</th>
-    </thead>
+  <div style="overflow-x: acroll">
+    <table>
+      <thead>
+        <th>Title</th>
+        <th>Body</th>
+        <th>Expires On</th>
+        <th>Posted On</th>
+      </thead>
 
-    <% active_listings.each do |a_listing| %>
-      <tr>
-        <td><%= a_listing.title %></td>
-        <td><%= a_listing.body %></td>
-        <td><%= a_listing.expires_on.strftime("%b %e, %y") %></td>
-        <td><%= a_listing.created_at.strftime("%b %e, %y") %></td>
-      </tr>
-    <% end %>
-  </table>
+      <% active_listings.each do |a_listing| %>
+        <tr>
+          <td><%= a_listing.title %></td>
+          <td><%= a_listing.body %></td>
+          <td><%= a_listing.expires_on.strftime("%b %e, %Y") %></td>
+          <td><%= a_listing.created_at.strftime("%b %e, %Y") %></td>
+        </tr>
+      <% end %>
+    </table>
+  </div>
 </article>
 
 <article>
   <header>
-      <h2>Expired Listings</h2>
+    <h2>Expired Listings</h2>
   </header>
 
-<table>
-    <thead>
-      <th>Title</th>
-      <th>Body</th>
-      <th>Expired On</th>
-      <th>Posted On</th>
-    </thead>
-    
-    <% expired_listings.each do |a_listing| %>
-      <tr>
-        <td><%= a_listing.title %></td>
-        <td><%= a_listing.body %></td>
-        <td><%= a_listing.expires_on.strftime("%b %e, %y") %></td>
-        <td><%= a_listing.created_at.strftime("%b %e, %y") %></td>
-      </tr>
-    <% end %>
-  </table>
+  <div style="overflow-x: acroll">
+    <table>
+      <thead>
+        <th>Title</th>
+        <th>Body</th>
+        <th>Expired On</th>
+        <th>Posted On</th>
+      </thead>
+
+      <% expired_listings.each do |a_listing| %>
+        <tr>
+          <td><%= a_listing.title %></td>
+          <td><%= a_listing.body %></td>
+          <td><%= a_listing.expires_on.strftime("%b %e, %Y") %></td>
+          <td><%= a_listing.created_at.strftime("%b %e, %Y") %></td>
+        </tr>
+      <% end %>
+    </table>
+  </div>
 </article>
