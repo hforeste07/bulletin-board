@@ -9,32 +9,41 @@
 <h1><%= @the_board.name %></h1>
 
 <article>
-<header>
-    <h2>Active Listings</h2>
-</header>
+  <header>
+      <h2>Active Listings</h2>
+  </header>
+  
+  <table>
+    <thead>
+      <th>Title</th>
+      <th>Body</th>
+      <th>Expires On</th>
+      <th>Posted On</th>
+    </thead>
 
-<% active_listings.each do |a_listing| %>
-  <ul>
-    <li>
-      <%= a_listing.title %>
+    <% active_listings.each do |a_listing| %>
+      <tr>
+        <td><%= a_listing.title %></td>
+        <td><%= a_listing.body %></td>
+        <td><%= a_listing.expires_on %></td>
+        <td><%= a_listing.created_at %></td>
+      </tr>
+    <% end %>
+  </table>
+</article>
 
-      (<%= a_listing.expires_on %>)
-    </li>
-  </ul>
-<% end %>
+<article>
+  <header>
+      <h2>Expired Listings</h2>
+  </header>
 
-<header>
-    <h2>Expired Listings</h2>
-</header>
+  <% expired_listings.each do |a_listing| %>
+    <ul>
+      <li>
+        <%= a_listing.title %>
 
-<% expired_listings.each do |a_listing| %>
-  <ul>
-    <li>
-      <%= a_listing.title %>
-
-      (<%= a_listing.expires_on %>)
-    </li>
-  </ul>
-
-<% end %>
+        (<%= a_listing.expires_on %>)
+      </li>
+    </ul>
+  <% end %>
 </article>
