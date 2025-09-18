@@ -6,7 +6,7 @@
 <% active_listings = all_listings.where({ :expires_on => (Date.today...) }) %>
 <% expired_listings = all_listings.where({ :expires_on => (...Date.today) }) %>
 
-<nav>
+<nav aria-label="breadcrumb">
   <ul>
     <li><a href="/">Home</a></li>
     <li><%= @the_board.name %></li>
