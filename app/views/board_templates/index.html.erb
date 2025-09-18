@@ -1,4 +1,8 @@
-<h1>Home</h1>
+<nav aria-label="breadcrumb">
+  <ul>
+    <li><a href="/">Home</a></li>
+  </ul>
+</nav>
 
 <% list_of_boards = Board.all %>
 
@@ -6,7 +10,7 @@
   <header>
       <h2>All Boards</h2>
   </header>
-  
+
   <ul>
     <% list_of_boards.each do |a_board| %>
       <li>
