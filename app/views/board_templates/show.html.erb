@@ -40,42 +40,45 @@
 </article>
 
 <article>
-<header>Add a new Listing
-<header>
-<form action="/insert_listing" method="post">
-<label for="title_field">Title</label  >
-<input id="title_field" type="text" name="title_param">
-<label for="body_field">Body</label>
-<textarea id="body_field" name="body_param"></textarea>
-<label for="expires_on_field">Expires On</label>
-<input id="expires_on_field" type="date" name="expires_on_param">
+  <header>Add a new Listing
+    <header>
+      <form action="/insert_listing" method="post">
+        <label for="title_field">Title</label  >
+        <input id="title_field" type="text" name="title_param">
 
-<button>Create Listing</button>
-</form>
+        <label for="body_field">Body</label>
+        <textarea id="body_field" name="body_param"></textarea>
+        
+        <label for="expires_on_field">Expires On</label>
+        <input id="expires_on_field" type="date" name="expires_on_param">
 
+        <input type="hidden" name="board_id_param" value="<%= the_id %>">
 
-<article>
-  <header>
-    <h2>Expired Listings</h2>
-  </header>
+        <button>Create Listing</button>
+      </form>
 
-  <div style="overflow-x: Scroll">
-    <table>
-      <thead>
-        <th>Title</th>
-        <th>Body</th>
-        <th>Expired On</th>
-        <th>Posted On</th>
-      </thead>
+      <article>
+        <header>
+          <h2>Expired Listings</h2>
+        </header>
 
-      <% expired_listings.each do |a_listing| %>
-        <tr>
-          <td><%= a_listing.title %></td>
-          <td><%= a_listing.body %></td>
-          <td><%= a_listing.expires_on.strftime("%b %e, %Y") %></td>
-          <td><%= a_listing.created_at.strftime("%b %e, %Y") %></td>
-        </tr>
-      <% end %>
-    </table>
-  </div>
-</article>
+        <div style="overflow-x: Scroll">
+          <table>
+            <thead>
+              <th>Title</th>
+              <th>Body</th>
+              <th>Expired On</th>
+              <th>Posted On</th>
+            </thead>
+
+            <% expired_listings.each do |a_listing| %>
+              <tr>
+                <td><%= a_listing.title %></td>
+                <td><%= a_listing.body %></td>
+                <td><%= a_listing.expires_on.strftime("%b %e, %Y") %></td>
+                <td><%= a_listing.created_at.strftime("%b %e, %Y") %></td>
+              </tr>
+            <% end %>
+          </table>
+        </div>
+      </article>

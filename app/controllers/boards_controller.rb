@@ -14,8 +14,6 @@ class BoardsController < ApplicationController
     @new_board.name = params.fetch("name_param")
     @new_board.save
 
-    #render({ :template => "board_templates/create_confirm" })
-
     redirect_to("/boards/#{@new_board.id}", :notice => "Board created successfully.")
   end
 end
