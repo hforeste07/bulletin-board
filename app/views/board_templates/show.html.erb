@@ -1,7 +1,40 @@
 <% the_id = params.fetch("path_id") %>
-
 <% matching_boards = Board.where({ :id => the_id }) %>
-
 <% @the_board = matching_boards.at(0) %>
 
+<% all_listings = Listing.where({ :board_id => the_id }) %>
+<% active_listings = all_listings.where({ :expires_on => (Date.today...) }) %>
+<% expired_listings = all_listings.where({ :expires_on => (...Date.today) }) %>
+
 <h1><%= @the_board.name %></h1>
+
+<article>
+<header>
+    <h2>Active Listings</h2>
+</header>
+
+<% active_listings.each do |a_listing| %>
+  <ul>
+    <li>
+      <%= a_listing.title %>
+
+      (<%= a_listing.expires_on %>)
+    </li>
+  </ul>
+<% end %>
+
+<header>
+    <h2>Expired Listings</h2>
+</header>
+
+<% expired_listings.each do |a_listing| %>
+  <ul>
+    <li>
+      <%= a_listing.title %>
+
+      (<%= a_listing.expires_on %>)
+    </li>
+  </ul>
+
+<% end %>
+</article>
