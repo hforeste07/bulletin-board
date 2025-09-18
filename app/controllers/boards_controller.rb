@@ -17,7 +17,7 @@ class BoardsController < ApplicationController
     if @new_board.id != nil
       redirect_to("/boards/#{@new_board.id}", :notice => "Board created successfully.")
     else
-      redirect_to("/", :alert => "Board creation failed.")
+      redirect_to("/", :alert => @new_board.id.errors.full_messages.to_sentence)
     end
   end
 end

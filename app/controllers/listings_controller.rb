@@ -1,7 +1,7 @@
 class ListingsController < ApplicationController
   def create
     new_listing = Listing.new
-    
+
     new_listing.title = params.fetch("title_param")
     new_listing.body = params.fetch("body_param")
     new_listing.expires_on = params.fetch("expires_on_param")
@@ -9,6 +9,10 @@ class ListingsController < ApplicationController
 
     new_listing.save
 
-    redirect_to("/boards/#{new_listing.board_id}", :notice => "Listing created successfully.")
+    if new_listing.id != nil
+      redirect_to("/boards/#{new_listing.board_id}", {:notice => "Listing created successfully."})
+    else
+      redirect_to("/boards/#{new_listing.board_id}", {:alert => new_listing.errors.full_messages.to_sentence})
+    end
   end
 end
